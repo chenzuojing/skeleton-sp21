@@ -12,7 +12,8 @@ import java.io.Serializable;
 public class Dog implements Serializable { // TODO
 
   /** Folder that dogs live in. */
-  static final File DOG_FOLDER = Utils.join(".capers", "dogs"); // TODO (hint: look at the `join`
+  //  static final File DOG_FOLDER =
+  //      Utils.join(CapersRepository.CAPERS_FOLDER, "dogs"); // TODO (hint: look at the `join`
 
   //      function in Utils)
 
@@ -44,7 +45,7 @@ public class Dog implements Serializable { // TODO
    */
   public static Dog fromFile(String name) {
     // TODO (hint: look at the Utils file)
-    File dog = Utils.join(DOG_FOLDER, name);
+    File dog = Utils.join(CapersRepository.DOG_FOLDER, name);
     return Utils.readObject(dog, Dog.class);
   }
 
@@ -58,8 +59,7 @@ public class Dog implements Serializable { // TODO
 
   /** Saves a dog to a file for future use. */
   public void saveDog() throws IOException {
-    // TODO (hint: don't forget dog names are unique)
-    File dog = Utils.join(DOG_FOLDER, name);
+    File dog = Utils.join(CapersRepository.DOG_FOLDER, name);
     dog.createNewFile();
     Utils.writeObject(dog, this);
   }
