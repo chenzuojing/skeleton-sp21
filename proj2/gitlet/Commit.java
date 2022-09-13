@@ -3,8 +3,8 @@ package gitlet;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.*;
 
 /**
@@ -50,14 +50,13 @@ public class Commit implements Serializable {
 
     /**
      * Instantiate a commit node.
-     *
-     * @param msg     commit message
-     * @param parent  the SHA1 of the parent commit nodes
+     * @param msg commit message
+     * @param parent the SHA1 of the parent commit nodes
      * @param initial a boolean value to separate initial commit
-     * @param map     the file-blob hashmap
+     * @param map the file-blob hashmap
      */
     public Commit(String msg, String parent, boolean initial, Map<String, String> map) {
-        List<String> list = new ArrayList<>(map.values());
+        List<String> list = new ArrayList<String>(map.values());
         // create unique sha
         String blobFileNames = "";
         for (String blobFileName : list) {
@@ -71,9 +70,7 @@ public class Commit implements Serializable {
         this.init = initial;
     }
 
-    /**
-     * for init only
-     */
+    /** for init only */
     public Commit(String msg, Map<String, String> map) {
         this.message = msg;
         this.parents[0] = Repo.INIT_PARENT_SHA1;
@@ -96,9 +93,7 @@ public class Commit implements Serializable {
         Utils.writeObject(commitLogs, commit);
     }
 
-    /**
-     * for merge commits only
-     */
+    /** for merge commits only */
     public Commit(String msg,
                   String firstParent,
                   String secondParent,
@@ -216,7 +211,6 @@ public class Commit implements Serializable {
 
     /**
      * Generate a timestamp for a commit node.
-     *
      * @param initial returns true if it is the first commit
      */
     public String generateDate(boolean initial) {
@@ -235,6 +229,6 @@ public class Commit implements Serializable {
      */
     public void printMap() {
         this.snapshot.forEach((key, value)
-                -> System.out.println(key + " : " + value));
+            -> System.out.println(key + " : " + value));
     }
 }
