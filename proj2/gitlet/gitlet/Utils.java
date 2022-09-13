@@ -20,18 +20,14 @@ import java.util.List;
 
 
 /** Assorted utilities.
- *
- * Give this file a good read as it provides several useful utility functions
- * to save you some time.
- *
  *  @author P. N. Hilfinger
  */
 class Utils {
 
+    /* SHA-1 HASH VALUES. */
+
     /** The length of a complete SHA-1 UID as a hexadecimal numeral. */
     static final int UID_LENGTH = 40;
-
-    /* SHA-1 HASH VALUES. */
 
     /** Returns the SHA-1 hash of the concatenation of VALS, which may
      *  be any mixture of byte arrays and Strings. */
