@@ -14,7 +14,7 @@ public class Blob implements Serializable {
 
     public Blob(String fileName) {
         this.fileName = fileName;
-        this.fileContent = Utils.readContents(Utils.join(".", fileName));
+        this.fileContent = Utils.readContents(Utils.join(Repository.CWD, fileName));
         this.blobSha = Utils.sha1(fileContent);
     }
 
